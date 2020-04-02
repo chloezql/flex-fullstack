@@ -2,8 +2,6 @@
 
 ## Overview
 
-(Flex System: a brief one or two paragraph, high-level description of your project_)
-
 I have a VR Physical Therapy project on doing. It is a software help reform remote physical therapy. A link here if you are interested in the idea : https://flexvr.net. So to facilitate this, I want to build a log-in and appointment system for patients. 
 
 Flex system can let patients search for their nearby or wanted physical therapist and then make appointments. Therapists can see their await patients with their basic health condition and infos to get idea ahead of meeting. 
@@ -19,7 +17,6 @@ The application will store patients, therapists, basic health information, Lists
 * users can make multiple appointments in table, and view their appointments
 * therapist can see their awaiting patients in table and according data
 
-(___TODO__: sample documents_)
 
 An Example patient:
 
@@ -61,23 +58,26 @@ An Example therapist:
 
 ## [Link to Commented First Draft Schema](db.js) 
 
-(___TODO__: create a first draft of your Schemas in db.js and link to it_)
 
 ## Wireframes
 
 (___TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
 
-/list/create - page for creating a new shopping list
+/search - page to search and present all therapists
 
-![list create](documentation/list-create.png)
+![list create](documentation/search.jpg)
 
-/list - page for showing all shopping lists
+/myAppt - page for patient to see all upcoming appointment and make adjustments
 
-![list](documentation/list.png)
+![list](documentation/myAppt.jpg)
 
-/list/slug - page for showing specific shopping list
+/myInfo - page for patient's information
 
-![list](documentation/list-slug.png)
+![list](documentation/myInfo.jpg)
+
+/myPatient - page to show patient in list for therapists
+
+![list](documentation/myPatient.jpg)
 
 ## Site map
 
