@@ -64,23 +64,23 @@ An Example therapist:
 
 /search - page to search and present all therapists
 
-![list create](documentation/search.jpg)
+![list create](documentations/search.jpg)
 
 /myAppt - page for patient to see all upcoming appointment and make adjustments
 
-![list](documentation/myAppt.jpg)
+![list](documentations/myAppt.jpg)
 
 /myInfo - page for patient's information
 
-![list](documentation/myInfo.jpg)
+![list](documentations/myInfo.jpg)
 
 /myPatient - page to show patient in list for therapists
 
-![list](documentation/myPatient.jpg)
+![list](documentations/myPatient.jpg)
 
 ## Site map
 
-![Image description](documentation/map.jpg)
+![Image description](documentations/map.jpg)
 
 ## User Stories or Use Cases
 
