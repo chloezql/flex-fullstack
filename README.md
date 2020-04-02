@@ -80,8 +80,7 @@ An Example therapist:
 
 ## Site map
 
-
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+![Image description](documentation/map.jpg)
 
 ## User Stories or Use Cases
 
@@ -104,8 +103,7 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 * 1 point google map API Per external API used
 
 
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
-
+9 points total out of 8 required points
 
 ## [Link to Initial Main Project File](app.js) 
 
