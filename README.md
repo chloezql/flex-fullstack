@@ -1,53 +1,63 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
-
-(___TODO__: your project name_)
-
-# Shoppy Shoperson 
+# Flex Physical Therapy Appointment System
 
 ## Overview
 
-(___TODO__: a brief one or two paragraph, high-level description of your project_)
+(Flex System: a brief one or two paragraph, high-level description of your project_)
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
+I have a VR Physical Therapy project on doing. It is a software help reform remote physical therapy. A link here if you are interested in the idea : https://flexvr.net. So to facilitate this, I want to build a log-in and appointment system for patients. 
 
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+Flex system can let patients search for their nearby or wanted physical therapist and then make appointments. Therapists can see their await patients with their basic health condition and infos to get idea ahead of meeting. 
+
+And for single users, they can put in their preference to get a customized kit from us. 
 
 
 ## Data Model
 
-(___TODO__: a description of your application's data and their relationships to each other_) 
-
-The application will store Users, Lists and Items
-
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
+The application will store patients, therapists, basic health information, Lists and Items
+* users will have authentification as well as the therapists
+* patients will be able to filter stored data of clinic and therapists. With images and UI presenting. 
+* users can make multiple appointments in table, and view their appointments
+* therapist can see their awaiting patients in table and according data
 
 (___TODO__: sample documents_)
 
-An Example User:
+An Example patient:
 
 ```javascript
 {
-  username: "shannonshopper",
-  hash: // a password hash,
-  lists: // an array of references to List documents
+  firstName: "chloe",
+  lastName:"Li",
+  password: "xxxxxx",// a password hash,
+  appointmentList: [{Obj-id-14535, ref to appointmentList}]
+  gender:"female",
+  age:"20",
+  need:"knees",
+  message:"I need therapy to recover from a surgery for my knees "
 }
 ```
 
-An Example List with Embedded Items:
+An Example List of appointments:
 
 ```javascript
 {
-  user: // a reference to a User object
-  name: "Breakfast foods",
+  firstName: "Chloe",
+  lastName: "Li",
   items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
-  createdAt: // timestamp
+    { clinic: "nycPT", therapist: "bill cane", year:"2020",month:"5",day:"1"},
+    { clinic: "city recovery", therapist: "julie rales", year:"2020",month:"6",day:"1"},
+  ]
 }
 ```
+An Example therapist:
 
+```javascript
+{
+    name:"julie rales",
+    gender:"female",
+    specialty:"legs, knees",
+    availability:"2020/6/1", "2020/6/2","2020/6/3","2020/6/4" //... like an calender
+}
+```
 
 ## [Link to Commented First Draft Schema](db.js) 
 
