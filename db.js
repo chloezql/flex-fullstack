@@ -41,6 +41,8 @@ const therapist = new mongoose.Schema({
     availability:String // probably a calander 
 });
 
+mongoose.model('therapist',therapist);
+
 //a clinic contains a list of therapists
 // a clinic provides location information for search
 const clinic = new mongoose.Schema({
@@ -49,6 +51,11 @@ const clinic = new mongoose.Schema({
     insuranceCover:String,
     therapists: [{type: mongoose.Schema.Types.ObjectId, ref: 'therapist'}]
   });
+
+  mongoose.model('clinic',clinic);
+
+
+
 
   if (process.env.NODE_ENV === 'PRODUCTION') {
     // if we're in PRODUCTION mode, then read the configration from a file // use blocking file io to do this...
