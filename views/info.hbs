@@ -1,5 +1,23 @@
-<h1>My Info</h1>
-name: 
-gender:
-age:
-contact:
+<h1>Patient Info</h1>
+<table>
+  <tr>
+    <th>first name</th>
+    <th>last Name</th>
+    <th>gender</th>
+    <th>age</th>
+     <th>need</th>
+    <th>note</th>
+  </tr>
+{{#each patient}}
+  <tr>
+    <th>{{firstName}}</th>
+    <th>{{lastName}}</th>
+    <th>{{gender}}</th>
+    <th>{{age}}</th>
+     <th>{{need}}</th>
+    <th>{{note}}</th>
+  </tr>
+
+{{/each}}
+ 
+</table>

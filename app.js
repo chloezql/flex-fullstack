@@ -1,10 +1,12 @@
-require('./db');
+require('./db.js');
 
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
 
 const app = express();
-
+const patient = mongoose.model('patient');
+const appointmentList = mongoose.model('appointmentList');
 // enable sessions
 const session = require('express-session');
 const sessionOptions = {
@@ -26,14 +28,40 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.render('main');
 });
+
 app.get('/search', (req, res) => {
     res.render('search');
   });
-  app.get('/myInfo', (req, res) => {
-    res.render('info');
+app.get('/myInfo', (req, res) => {
+    patient.find({}, (err, ans) => {
+      res.render('info', {patient: ans});
   });
-  app.get('/myAppt', (req, res) => {
-    res.render('myAppt');
   });
+app.get('/myAppt', (req, res) => {
+  appointmentList.find({}, (err, ans) => {
+    res.render('myAppt', {appointment: ans});
+});
+  });
+
+app.get('/add', function(req, res) {
+    res.render('add');
+});
+
+app.post('/add', function(req, res) {
+  const obj = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+     clinic: req.body.clinic,
+      therapist: req.body.therapist
+  };
+  const a = new appointmentList(obj);
+  a.save((err, savedArticle) => {
+      // if there's an error object.... just rerender the template with some message
+      console.log(err, savedArticle);
+      
+      res.redirect('/myAppt');
+      
+})
+} );
 
 app.listen(3000);

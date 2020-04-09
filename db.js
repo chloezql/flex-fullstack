@@ -6,23 +6,31 @@ const patient = new mongoose.Schema({
   firstName: String,
   lastName:String,
   // password hash provided by authentication plugin
-  appointmentList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'appointmentList' }],
+  //appointmentList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'appointmentList' }],
   gender:String,
   age:Number,
   need:String,
   message:String
 });
 
+mongoose.model('patient',patient);
 
 // an appointmentList is a list of patient's appointments
 // it has the clinic information and the appointment date. 
 const appointmentList = new mongoose.Schema({
     firstName: String,
     lastName:String,
-    items: [
-        { clinic: String, therapist: String, year:Number,month:Number,day:Number},
-    ]
+    clinic: String,
+     therapist: String,
+    year:Number,
+    month:Number,
+    day:Number,
+    hour:Number,
+    minute:Number
+    
 })
+mongoose.model('appointmentList',appointmentList);
+
 
 // a therapist information demo
 //it shows the availbility as calender of a therapist,which helps to make apppointments
@@ -41,3 +49,32 @@ const clinic = new mongoose.Schema({
     insuranceCover:String,
     therapists: [{type: mongoose.Schema.Types.ObjectId, ref: 'therapist'}]
   });
+
+  if (process.env.NODE_ENV === 'PRODUCTION') {
+    // if we're in PRODUCTION mode, then read the configration from a file // use blocking file io to do this...
+    const fs = require('fs');
+    const path = require('path');
+    const fn = path.join(__dirname, '../config.json'); const data = fs.readFileSync(fn);
+    // our configuration file will be in json, so parse it and set the // conenction string appropriately!
+    const conf = JSON.parse(data);
+    dbconf = conf.dbconf;
+    } else {
+    // if we're not in PRODUCTION mode, then use
+    dbconf = 'mongodb://localhost/final';
+    }
+
+ mongoose.connect('mongodb://localhost/final', {useNewUrlParser: true, useUnifiedTopology: true});
+
+/*
+  db.appointmentList.insert({
+    firstName: "chloe",
+    lastName:"li",
+    clinic: "nyc clinic",
+     therapist: "lucas macchiato",
+    year:2020,
+    month:4,
+    day:20,
+    hour:11,
+    minute:30
+  })
+*/

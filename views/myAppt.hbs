@@ -1,1 +1,29 @@
 <h1>My appointments</h1>
+
+<table>
+  <tr>
+    <th>first name</th>
+    <th>last Name</th>
+    <th>clinic</th>
+    <th>therapist</th>
+     <th>year</th>
+    <th>month</th>
+    <th>day</th>
+    <th>hour</th>
+    <th>minute</th>
+  </tr>
+{{#each appointment}}
+  <tr>
+    <th>{{firstName}}</th>
+    <th>{{lastName}}</th>
+    <th>{{clinic}}</th>
+    <th>{{therapist}}</th>
+     <th>{{year}}</th>
+    <th>{{month}}</th>
+    <th>{{day}}</th>
+    <th>{{hour}}</th>
+    <th>{{minute}}</th>
+  </tr>
+{{/each}}
+ 
+</table>
