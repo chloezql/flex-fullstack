@@ -1,0 +1,31 @@
+<form action="" method="get" style="text-align: center;">
+    <input type="text" name="professor" placeholder="professor">
+    <input type="text" name="semester" placeholder="semester">
+    <input type="Number" name="year" placeholder="year">
+    
+    <button>Search</button>
+</form><br/>
+
+
+<table>
+  <tr>
+    <th>firstName</th>
+    <th>lastName</th>
+    <th>Professor</th>
+    <th>Semester</th>
+     <th>year</th>
+    <th>Review</th>
+  </tr>
+{{#each rev}}
+  <tr>
+    <th>{{firstName}}</th>
+    <th>{{lastName}}</th>
+    <th>{{clinic}}</th>
+    <th>{{therapist}}</th>
+     <th>{{year}}</th>
+    <th>{{dat}}</th>
+  </tr>
+
+{{/each}}
+ 
+</table>

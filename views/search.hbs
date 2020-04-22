@@ -1,1 +1,120 @@
-Search for therapist
+
+
+<h2>Clinic List</h2>
+<div class="allClinic">
+    <div class ="singleClinic">
+         <h4 class="clinicTitle">NYU Langone Physical Therapy Center</h4>
+        <div class="row">
+            <div class="column">
+                <p class="intro">  
+                    This is a therapy center focusing on balance training. We have 4 therapists all have extraordinary experience in PT.
+                </p>
+            </div>
+            <div class="column">
+            <h4 id="distance"> </h4>
+        <a href="/map" class="btn-sm btn-info" role="button" id="map">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Find direction to your clinic</a>
+            </div>
+        </div>
+        
+    </div>
+    <div class ="singleClinic">
+         <h4 class="clinicTitle">Example</h4>
+        <div class="row">
+            <div class="column">
+                <p class="intro">  
+                    This is a therapy center focusing on balance training. We have 4 therapists all have extraordinary experience in PT.
+                </p>
+            </div>
+            <div class="column">
+            <h4 id="distance"> </h4>
+        <a href="/map" class="btn-sm btn-info" role="button" id="map">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Find direction to your clinic</a>
+            </div>
+        </div>
+        
+    </div>
+    <div class ="singleClinic">
+         <h4 class="clinicTitle">Example</h4>
+        <div class="row">
+            <div class="column">
+                <p class="intro">  
+                    This is a therapy center focusing on balance training. We have 4 therapists all have extraordinary experience in PT.
+                </p>
+            </div>
+            <div class="column">
+            <h4 id="distance"> </h4>
+        <a href="/map" class="btn-sm btn-info" role="button" id="map">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Find direction to your clinic</a>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+
+<script>
+    //const frick = {lat: 40.771209, lng: -73.9673991};
+    //const center = {lat: 40.7095160, lng: -74.0081331};
+    function _getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+  var R = 6371; // Radius of the earth in kilometers
+  var dLat = deg2rad(lat2 - lat1); // deg2rad below
+  var dLon = deg2rad(lon2 - lon1);
+  var a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c; // Distance in KM
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI / 180)
+}
+var d = _getDistanceFromLatLonInKm(40.771209, -73.9673991, 40.7095160, -74.0081331)
+document.getElementById("distance").innerHTML = "<p>Distance to you : " + d.toFixed(1) + " km.</p>"
+</script>
+
+<style>
+    p{
+        color:black;
+        font-size: 15px;
+        background:transparent;
+        width:70%;
+        text-align: center;
+    }
+    .singleClinic{
+        background:lightgray;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    #map{
+        width:60%;
+    }
+    .column {
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+    padding: 10px;
+}
+h2{
+    text-align: center;
+}
+h4{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.intro{
+    text-align: center;
+    width: 60%;
+    float: right;
+}
+.clinicTitle{
+    margin-top: 10px;
+}
+</style>

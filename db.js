@@ -1,6 +1,24 @@
 // 1ST DRAFT DATA MODEL
 const mongoose = require('mongoose');
 
+// an appointmentList is a list of patient's appointments
+// it has the clinic information and the appointment date. 
+const appointmentList = new mongoose.Schema({
+  firstName:{type: String},
+  lastName:{type: String},
+  clinic: {type: String},
+  therapist: {type: String},
+  year:{type: Number},
+  month:{type: Number},
+  day:{type: Number},
+  hour:{type:Number},
+  minute:{type: Number}
+  
+}, { collection: 'appointments' })
+mongoose.model('appointmentList',appointmentList);
+
+
+
 // a patient with their basic information and their appointments
 const patient = new mongoose.Schema({
   firstName: String,
@@ -14,22 +32,6 @@ const patient = new mongoose.Schema({
 });
 
 mongoose.model('patient',patient);
-
-// an appointmentList is a list of patient's appointments
-// it has the clinic information and the appointment date. 
-const appointmentList = new mongoose.Schema({
-    firstName: String,
-    lastName:String,
-    clinic: String,
-     therapist: String,
-    year:Number,
-    month:Number,
-    day:Number,
-    hour:Number,
-    minute:Number
-    
-})
-mongoose.model('appointmentList',appointmentList);
 
 
 // a therapist information demo
@@ -56,7 +58,7 @@ const clinic = new mongoose.Schema({
 
 
 
-
+/*
   if (process.env.NODE_ENV === 'PRODUCTION') {
     // if we're in PRODUCTION mode, then read the configration from a file // use blocking file io to do this...
     const fs = require('fs');
@@ -69,8 +71,9 @@ const clinic = new mongoose.Schema({
     // if we're not in PRODUCTION mode, then use
     dbconf = 'mongodb://localhost/final';
     }
+*/
 
- mongoose.connect('mongodb://localhost/final', {useNewUrlParser: true, useUnifiedTopology: true});
+ mongoose.connect('mongodb://localhost/flexvr', {useNewUrlParser: true, useUnifiedTopology: true});
 
 /*
   db.appointmentList.insert({
@@ -84,4 +87,19 @@ const clinic = new mongoose.Schema({
     hour:11,
     minute:30
   })
+*/
+
+/*
+db.appointments.insert({
+
+    firstName: "Chloe",
+    lastName:"Li",
+    clinic: "first clinic",
+    therapist: "cool doc",
+    year:2020,
+    month:10,
+    day:14,
+    hour:16,
+    minute:30
+})
 */

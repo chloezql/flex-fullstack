@@ -1,7 +1,11 @@
-<h1>My appointments</h1>
 
-<table>
-  <tr>
+
+<h2 class="appt-head">My appointments</h2>
+
+<div class = "Appt">
+<table class="content-table">
+  <thead>
+    <tr>
     <th>first name</th>
     <th>last Name</th>
     <th>clinic</th>
@@ -12,7 +16,9 @@
     <th>hour</th>
     <th>minute</th>
   </tr>
-{{#each appointment}}
+  </thead>
+  <tbody>
+    {{#each myAppt}}
   <tr>
     <th>{{firstName}}</th>
     <th>{{lastName}}</th>
@@ -25,5 +31,7 @@
     <th>{{minute}}</th>
   </tr>
 {{/each}}
- 
+  </tbody>
 </table>
+
+</div>

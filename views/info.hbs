@@ -1,23 +1,43 @@
-<h1>Patient Info</h1>
-<table>
-  <tr>
-    <th>first name</th>
-    <th>last Name</th>
-    <th>gender</th>
-    <th>age</th>
-     <th>need</th>
-    <th>note</th>
-  </tr>
-{{#each patient}}
-  <tr>
-    <th>{{firstName}}</th>
-    <th>{{lastName}}</th>
-    <th>{{gender}}</th>
-    <th>{{age}}</th>
-     <th>{{need}}</th>
-    <th>{{note}}</th>
-  </tr>
+<h2>Welcome to check all the therapist and see if they are available. </h2>
 
-{{/each}}
+<ul>
+  <li>
+    <div> 
+      <h3> Example Therapist </h3>
+      <div class="col"><p>if available : yes</p></div>
+      <div > <button>make appointment</button></div>
+      
+    </div>
+  </li>
+  <li>
+    <div> 
+      <h3> Example Therapist </h3>
+      <div class="col"><p>if available : yes</p></div>
+      <div > <button>make appointment</button></div>
+      
+    </div>
+  </li>
+  <li>
+    <div> 
+      <h3> Example Therapist </h3>
+      <div class="col"><p>if available : yes</p></div>
+      <div > <button>make appointment</button></div>
+      
+    </div>
+  </li>
  
-</table>
+</ul>
+
+
+
+
+<style>
+  li{
+    margin:20px;
+    border-color: mediumblue;
+  }
+  .col {
+    float: left;
+    width: 50%;
+}
+</style>

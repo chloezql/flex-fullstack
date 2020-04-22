@@ -2,10 +2,17 @@ require('./db.js');
 
 const express = require('express');
 const path = require('path');
-const mongoose = require('mongoose');
-
 const app = express();
-const patient = mongoose.model('patient');
+const mongoose = require('mongoose');
+var cookieParser = require('cookie-parser')
+app.use(cookieParser())
+var bodyParser = require('body-parser')
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+//const patient = mongoose.model('patient');
 const appointmentList = mongoose.model('appointmentList');
 // enable sessions
 const session = require('express-session');
@@ -26,20 +33,19 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  res.render('main');
+ res.render('main');
+ 
 });
 
 app.get('/search', (req, res) => {
     res.render('search');
   });
 app.get('/myInfo', (req, res) => {
-    patient.find({}, (err, ans) => {
-      res.render('info', {patient: ans});
-  });
+    res.render('info')
   });
 app.get('/myAppt', (req, res) => {
   appointmentList.find({}, (err, ans) => {
-    res.render('myAppt', {appointment: ans});
+    res.render('myAppt', {myAppt: ans});
 });
   });
 
@@ -48,6 +54,7 @@ app.get('/add', function(req, res) {
 });
 
 app.post('/add', function(req, res) {
+  console.log(req.body);
   const obj = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -64,4 +71,9 @@ app.post('/add', function(req, res) {
 })
 } );
 
+app.get('/map', (req, res) => {
+  res.sendFile(path.join(__dirname+'/googlemap/mapPage.html'));
+});
+
 app.listen(3000);
+
