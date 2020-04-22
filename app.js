@@ -59,7 +59,12 @@ app.post('/add', function(req, res) {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
      clinic: req.body.clinic,
-      therapist: req.body.therapist
+      therapist: req.body.therapist,
+      year:req.body.year,
+      month:req.body.month,
+      day:req.body.day,
+      hour:req.body.hour,
+      minute:req.body.minute,
   };
   const a = new appointmentList(obj);
   a.save((err, savedArticle) => {
@@ -75,5 +80,5 @@ app.get('/map', (req, res) => {
   res.sendFile(path.join(__dirname+'/googlemap/mapPage.html'));
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 
