@@ -58,25 +58,9 @@ const clinic = new mongoose.Schema({
 
 
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
-let dbconf;
-if (process.env.NODE_ENV === 'PRODUCTION') {
- // if we're in PRODUCTION mode, then read the configration from a file
- // use blocking file io to do this...
- const fs = require('fs');
- const path = require('path');
- const fn = path.join(__dirname, 'config.json');
- const data = fs.readFileSync(fn);
 
- // our configuration file will be in json, so parse it and set the
- // conenction string appropriately!
- const conf = JSON.parse(data);
- dbconf = conf.dbconf;
-} else {
- // if we're not in PRODUCTION mode, then use
- dbconf = 'mongodb+srv://zl1941:zl1941@ait-dzhzk.mongodb.net/test?retryWrites=true&w=majority';
-}
 
- mongoose.connect('mongodb://localhost/dbconf', {useNewUrlParser: true, useUnifiedTopology: true});
+ mongoose.connect('mongodb+srv://zl1941:zl1941@ait-dzhzk.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 /*
   db.appointmentList.insert({
