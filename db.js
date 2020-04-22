@@ -73,7 +73,7 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
  dbconf = conf.dbconf;
 } else {
  // if we're not in PRODUCTION mode, then use
- dbconf = 'mongodb://localhost/flexvr';
+ dbconf = 'mongodb+srv://zl1941:zl1941@ait-dzhzk.mongodb.net/test?retryWrites=true&w=majority';
 }
 
  mongoose.connect('mongodb://localhost/dbconf', {useNewUrlParser: true, useUnifiedTopology: true});
