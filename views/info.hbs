@@ -1,43 +1,116 @@
-<h2>Welcome to check all the therapist and see if they are available. </h2>
 
-<ul>
-  <li>
-    <div> 
-      <h3> Example Therapist </h3>
-      <div class="col"><p>if available : yes</p></div>
-      <div > <button>make appointment</button></div>
-      
-    </div>
-  </li>
-  <li>
-    <div> 
-      <h3> Example Therapist </h3>
-      <div class="col"><p>if available : yes</p></div>
-      <div > <button>make appointment</button></div>
-      
-    </div>
-  </li>
-  <li>
-    <div> 
-      <h3> Example Therapist </h3>
-      <div class="col"><p>if available : yes</p></div>
-      <div > <button>make appointment</button></div>
-      
-    </div>
-  </li>
- 
-</ul>
 
+                <div class="row">
+                  <div class=" col-md-3">
+                        
+                    </div>
+                    <div class=" col-md-2">
+                        <img src="images/flexvr-image.jpg" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class=" col-md-5">
+                     
+                        <div class="row line">
+                        <div class=" col-md-5 label">
+                          <p> First Name: </p>
+                        </div>
+                        <div class="col-md-3 text">
+                         <p>  {{info.first}}</p>
+                        </div>
+                  
+                      </div>
+                      
+           
+                        <div class="row line">
+                        <div class="col-md-3 label">
+                          <p> Last Name: </p>
+                        </div>
+                        <div class="col-md-3 text">
+                         <p>  {{info.last}}</p>
+                        </div>
+                  
+                      </div>
+                     
+                     
+                        <div class="row line">
+                        <div class="col-md-3 label" >
+                          <p> Gender: </p>
+                        </div>
+                        <div class="col-md-3 text">
+                         <p>  {{info.gender}}</p>
+                        </div>
+                  
+                      </div>
+                       <div class="row line">
+                        <div class="col-md-3 label" >
+                          <p> Need: </p>
+                        </div>
+                        <div class="col-md-3 text">
+                         <p>  {{info.need}}</p>
+                        </div>
+                  
+                      </div>
+                       <div class="row line">
+                        <div class="col-md-3 label" >
+                          <p> Message: </p>
+                        </div>
+                        <div class="col-md-3 text">
+                         <p>  {{info.message}}</p>
+                        </div>
+                  
+                      </div>
+                              <button> 
+                              <a href="/edit">Edit</a></button>
+                      
+                              
+                            
+                           
+                        </div>
+                    </div>
+                </div>
 
 
 
 <style>
-  li{
-    margin:20px;
-    border-color: mediumblue;
+  .img-rounded{
+     border-radius: 50%;
+     width:100px;
+     height:100px;
+     margin:auto;
+     
   }
-  .col {
-    float: left;
-    width: 50%;
-}
+  .row{
+    width:100%;
+  }
+  .line{
+    background-color: lightgrey;
+    margin:15px;
+    height: 60px;
+    vertical-align: middle;
+  }
+  .label{
+    background-color: rgb(26, 29, 71);
+    color: linen;
+    height: 100%;
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+    font-size: 17px;
+  }
+
+  .text{
+    color: rgb(27, 27, 27);
+    height: 100%;
+    width: 70%;
+    text-align: center;
+    margin:auto;
+    vertical-align: middle;
+font-size: 15px;;
+  }
+  p{
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+  
+  }
 </style>

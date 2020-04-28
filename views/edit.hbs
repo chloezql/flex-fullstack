@@ -1,0 +1,46 @@
+<div class="form">
+
+<form method="POST" action="">
+  <div class="form-head">
+      <h2>Edit Personal Info</h2>
+  </div>
+
+  <div class ="form-body">
+  
+    <div class="form-group col">
+      <label for="firstName">First Name:</label>
+      <input type="text" class="form-control" id="first" value={{info.first}} placeholder="Enter your first name" name="first">
+    </div>
+
+<div class="form-group col">
+      <label for="lastName">Last Name:</label>
+      <input type="text" class="form-control" id="last" value={{info.last}} placeholder="Enter your last name" name="last">
+    </div>
+
+<div class="form-group col">
+      <label for="clinic">Gender:</label>
+    <select id="gender" name="gender" class="form-control">
+    <option value="female">Female</option>
+    <option value="male">Male</option>
+    <option value="other">Other</option>
+    <option value="prefer not say">Prefer not say</option>
+  </select>
+    </div>
+
+<div class="form-group col">
+      <label for="clinic">Need:</label>
+      <input type="text" class="form-control" id="need" value={{info.need}} placeholder="Example: Knee and Back treatment" name="need">
+    </div>
+
+<div class="form-group col">
+      <label for="therapist">Message:</label>
+      <input type="text" class="form-control" id="message" value= {{info.message}} placeholder="Example: Finding doctor in Midtown" name="message">
+    </div>
+
+    <button type="submit" class="btn btn-appointment btn-success">Change</button>	
+
+  </div>
+
+</form>
+
+</div>

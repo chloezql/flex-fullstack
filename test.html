@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Final Project chloe</title>
+    
+    <link rel="stylesheet" href="/css/base.css" type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  </head>
+  <body id="root">
+    <header>
+        <div class="page-header">
+            <h1>Flex VR System</h1>      
+          </div>
+    </header>
+    <!-- We will put our React component inside this div. -->
+    <div id='challenge-node'></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+     #user{
+      color:floralwhite;
+    }
+    #userli{
+      
+      margin-left: 10px;
+      width:150px;
+      text-align: center;
+      height: inherit;
+    }
+    .container {
+  position: relative;
+  text-align: center;
+  color: white;
+  width:100%;
+}
+.centered {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
+  margin:auto;
+  text-align: center;
+}
+img{
+    width: 100%;
+    opacity: 0.9;
+}
+.intro{
+    color:black;
+}
+.introh3{
+    color: black;
+    text-align: left;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 30px;
+    width: 70%;
+}
+.introp{
+    color: rgb(29, 49, 78);
+    font-size: 20px;
+    text-indent: 20px;
+    width: 75%;
+    margin:auto;
+    margin-top: 30px;
+}
+    </style>
+    <script type="text/babel">
+        class Greeting extends React.Component {
+            _isMounted = false;
+            constructor(props) {
+                super(props);
+
+                this.state = {
+                data: ""
+                };    
+  }
+            componentDidMount() {
+                this._isMounted = true;
+                axios.get("/id").then(res => {  
+                    if(this._isMounted)
+                    { this.setState({data:res.data[0].id});}
+                
+                console.log(res.data[0])
+                })
+            }
+            componentWillUnmount() {
+                this._isMounted = false;
+            }
+            render() {
+                return (
+                <section>
+                <nav>
+                        <ul>
+                        <li>
+                            <a href="/" >
+                            <span className="glyphicon glyphicon-home"></span>
+                            Main Page</a>
+                        </li>
+                        <li>
+                        <a href="/search" >
+                            <span className="glyphicon glyphicon-search"></span>
+                            Search for clinic</a>
+                        </li>
+                        <li>
+                        <a href="/myInfo" >
+                            <span className="glyphicon glyphicon-user"></span>
+                            Your Information</a>
+                        </li>
+                        <li>
+                        <a href="/myAppt" >
+                                <span className="glyphicon glyphicon-th-list"></span>
+                                My appointments</a>
+                        </li>
+                        <li>
+                            <a href="/add"  >
+                                <span className="glyphicon glyphicon-pencil"></span>
+                                add new Appointment</a>
+                        </li>
+                    
+                        <li>
+                        <a href="/login"  >
+                            <span className="glyphicon glyphicon-user"></span>
+                            Login</a>
+                        </li>
+                        <li>
+                        <a href="/logout"  >
+                            <span className="glyphicon glyphicon-user"></span>
+                            Log Out</a>
+                        </li>
+                        <li>
+                        <a href="/signup"  >
+                            <span className="glyphicon glyphicon-user"></span>
+                            Sign Up</a>
+                        </li>
+                        <li id="userli">
+                            <h4 id="user"> Welcome,{this.state.data}</h4>
+                        </li>
+                </ul>
+                </nav>
+                <article>
+                    <div class="container">
+                        <img src="images/flexvr-image.jpg" />
+                        <div class="centered">Hi {this.state.data}, Welcome to Flex VR</div>
+                        <div clss="intro">
+                            <h3 class="introh3">Flex VR</h3>
+                            <p class="introp">A VR physical therapy APP built with Unity and Leap Motion that captures health data and motivates patients.
+                                 It helps patients to reach rehab goals by making repetitive movements more pleasuable and entertaining.
+                             </p>
+                             <p class="introp">On FlexVR platform, communication between physicians and patients has never been closer. 
+                                Physicians can now remotely join the patient’s home training and provide real-time instructions, 
+                                modifications, and feedback. FlexVR is an ideal solution to bridge the gap between patients and
+                                physicians.</p></div>
+                    </div>
+                    
+                </article>
+                </section>);
+            }
+                }
+                ReactDOM.render(
+                    <Greeting />,
+                    document.getElementById('challenge-node')
+                );
+                </script>
+
+    <!-- Load our React component. -->
+    <!-- <script type="text/babel" src="like_button.js"></script>-->
+
+  </body>
+</html>

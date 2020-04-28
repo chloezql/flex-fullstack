@@ -12,56 +12,54 @@ const appointmentList = new mongoose.Schema({
   month:{type: Number},
   day:{type: Number},
   hour:{type:Number},
-  minute:{type: Number}
+  minute:{type: Number},
+  userid:{type:String}
   
 }, { collection: 'appointments' })
 mongoose.model('appointmentList',appointmentList);
 
-
+const UserSchema = new mongoose.Schema({
+  id: { type: String, required: true},
+  password: { type: String, required: true}
+}, { collection: 'users'});
+mongoose.model('User', UserSchema);
 
 // a patient with their basic information and their appointments
 const patient = new mongoose.Schema({
-  firstName: String,
-  lastName:String,
+  first: String,
+  last:String,
   // password hash provided by authentication plugin
   //appointmentList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'appointmentList' }],
   gender:String,
   age:Number,
   need:String,
-  message:String
-});
+  message:String,
+  username:String
+}, { collection: 'patients' });
 
 mongoose.model('patient',patient);
 
 
-// a therapist information demo
-//it shows the availbility as calender of a therapist,which helps to make apppointments
-const therapist = new mongoose.Schema({
-    name:String,
-    gender:String,
-    specialty:String,
-    availability:String // probably a calander 
-});
-
-mongoose.model('therapist',therapist);
-
 //a clinic contains a list of therapists
 // a clinic provides location information for search
 const clinic = new mongoose.Schema({
-    location:String,
-    openHours:String,
+    name:String,
+    longitude:Number,
+    latitude:Number,
+    focus:String,
     insuranceCover:String,
-    therapists: [{type: mongoose.Schema.Types.ObjectId, ref: 'therapist'}]
-  });
+    opendays:Array
+  },{collection:'clinics'});
 
-  mongoose.model('clinic',clinic);
+mongoose.model('clinic',clinic);
 
 
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
 
 
  mongoose.connect('mongodb+srv://zl1941:zl1941@ait-dzhzk.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
-
+//mongodb+srv://zl1941:zl1941@ait-dzhzk.mongodb.net/test?retryWrites=true&w=majority
+//mongodb+srv://zl1941:<password>@ait-dzhzk.mongodb.net/test?retryWrites=true&w=majority
 /*
   db.appointmentList.insert({
     firstName: "chloe",
@@ -89,4 +87,10 @@ db.appointments.insert({
     hour:16,
     minute:30
 })
+
+db.users.insert({
+  id:"user",
+  password:"pass"
+})
 */
+
