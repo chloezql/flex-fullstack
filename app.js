@@ -98,6 +98,18 @@ app.post('/add', function(req, res) {
 })
 } );
 
+
+function checkSignIn(req, res, next){
+  if(req.session.user_id){
+     next();     //If session exists, proceed to page
+  } else {
+     var err = new Error("Not logged in!");
+     console.log("you didn't login");
+     //console.log(req.session.user);
+     next(err);  //Error, trying to access unauthorized page!
+  }
+}
+
 app.get('/edit',checkSignIn, function(req, res) {
   patient.findOne({username:req.session.user_id}, (err, ans) => {
     res.render('edit', {info: ans});
@@ -116,17 +128,6 @@ app.post('/edit', function(req, res) {
     res.redirect('/myInfo');
 });
 });
-
-function checkSignIn(req, res, next){
-  if(req.session.user_id){
-     next();     //If session exists, proceed to page
-  } else {
-     var err = new Error("Not logged in!");
-     console.log("you didn't login");
-     //console.log(req.session.user);
-     next(err);  //Error, trying to access unauthorized page!
-  }
-}
 
 app.get('/login', function(req, res){
   res.render('login');
