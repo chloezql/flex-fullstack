@@ -56,11 +56,13 @@ app.get('/search',checkSignIn, (req, res) => {
     res.render('search',{clinics:ans});
 });
   });
+
 app.get('/myInfo', checkSignIn,(req, res) => {
-  patient.findOne({username:req.session.user_id}, (err, ans) => {
-    console.log(ans)
-    res.render('info', {info: ans});
+    patient.find({}, (err, ans) => {
+    const myInfo = ans.filter(info => info.username ==req.session.user_id);
+    res.render('info', {info: myInfo});
 });
+    
   });
 app.get('/myAppt',checkSignIn, (req, res) => {
   appointmentList.find({}, (err, ans) => {
