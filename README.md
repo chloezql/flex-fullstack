@@ -1,7 +1,7 @@
 # Flex Physical Therapy Appointment System
 
 ## Final Present
-![Demo](documentations/whole.gif)
+![Demo](documentations/whole-sm.gif)
 ## Overview
 
 I have a VR Physical Therapy project on doing. It is a software help reform remote physical therapy. A link here if you are interested in the idea : https://flexvr.net. So to facilitate this, I want to build a log-in and appointment system for patients. 
@@ -73,8 +73,11 @@ An Example clinic:
 /login - page to login and sign up
 
 ![list create](documentations/log-in.png)
+/   -main page after login
 
-//search - page to search and present all therapists
+![list](documentations/search-new.png)
+
+/search - page to search and present all therapists
 
 ![list](documentations/search-new.png)
 
