@@ -101,10 +101,9 @@ An Example clinic:
 
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
-3. as a user, I can view and filter therapists
+3. as a user, I can view and see direction to clinics
 4. as a user, I can view all the appointments I made and make adjustment
 5. as a user, I can change my own information
-6. as a user(therapist), I can view all upcoming patients and their information
 
 ## Research Topics
 
@@ -113,13 +112,13 @@ An Example clinic:
 * (2 points)Bootstrap  Use a CSS framework throughout your site, use a reasonable of customization of the framework (don't just use stock Bootstrap 
 
 
-* 1 point google calender API Per external API used
-
 * 1 point google map API Per external API used
 
 
-9 points total out of 8 required points
+8 points total out of 8 required points
 
 ## [Link to Initial Main Project File](app.js) 
 
 ## Annotations / References Used
+
+w3school, https://www.freecodecamp.org/forum/t/uncaught-syntaxerror-unexpected-token-lt/280400/2,https://medium.com/@maison.moa/setting-up-an-express-backend-server-for-create-react-app-bc7620b20a61,google map api documentaries, https://medium.com/@lowewenzel/serving-express-with-a-react-single-page-app-within-the-same-application-c168f1c44201, https://youtu.be/biI9OFH6Nmg
