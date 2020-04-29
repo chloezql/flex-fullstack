@@ -60,37 +60,3 @@ mongoose.model('clinic',clinic);
  mongoose.connect('mongodb+srv://zl1941:zl1941@ait-dzhzk.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 //mongodb+srv://zl1941:zl1941@ait-dzhzk.mongodb.net/test?retryWrites=true&w=majority
 //mongodb+srv://zl1941:<password>@ait-dzhzk.mongodb.net/test?retryWrites=true&w=majority
-/*
-  db.appointmentList.insert({
-    firstName: "chloe",
-    lastName:"li",
-    clinic: "nyc clinic",
-     therapist: "lucas macchiato",
-    year:2020,
-    month:4,
-    day:20,
-    hour:11,
-    minute:30
-  })
-*/
-
-/*
-db.appointments.insert({
-
-    firstName: "Chloe",
-    lastName:"Li",
-    clinic: "first clinic",
-    therapist: "cool doc",
-    year:2020,
-    month:10,
-    day:14,
-    hour:16,
-    minute:30
-})
-
-db.users.insert({
-  id:"user",
-  password:"pass"
-})
-*/
-

@@ -1,5 +1,7 @@
 # Flex Physical Therapy Appointment System
 
+## Final Present
+![Demo](documentations/whole.gif)
 ## Overview
 
 I have a VR Physical Therapy project on doing. It is a software help reform remote physical therapy. A link here if you are interested in the idea : https://flexvr.net. So to facilitate this, I want to build a log-in and appointment system for patients. 
@@ -12,10 +14,11 @@ And for single users, they can put in their preference to get a customized kit f
 ## Data Model
 
 The application will store patients, therapists, basic health information, Lists and Items
-* users will have authentification as well as the therapists
-* patients will be able to filter stored data of clinic and therapists. With images and UI presenting. 
+* users will have authentication 
+* patients will be able to filter stored data of clinic.  With images and UI presenting. 
 * users can make multiple appointments in table, and view their appointments
-* therapist can see their awaiting patients in table and according data
+* Users can see the direction to clinics
+* Users can edit their information
 
 
 An Example patient:
@@ -24,12 +27,11 @@ An Example patient:
 {
   firstName: "chloe",
   lastName:"Li",
-  password: "xxxxxx",// a password hash,
-  appointmentList: [{Obj-id-14535, ref to appointmentList}]
   gender:"female",
   age:"20",
   need:"knees",
-  message:"I need therapy to recover from a surgery for my knees "
+  message:"I need therapy to recover from a surgery for my knees ",
+  username:"chloezql"
 }
 ```
 
@@ -37,22 +39,28 @@ An Example List of appointments:
 
 ```javascript
 {
-  firstName: "Chloe",
-  lastName: "Li",
-  items: [
-    { clinic: "nycPT", therapist: "bill cane", year:"2020",month:"5",day:"1"},
-    { clinic: "city recovery", therapist: "julie rales", year:"2020",month:"6",day:"1"},
-  ]
+  firstName:"chloe",
+  lastName:"li",
+  clinic: "NY center",
+  therapist: "john",
+  year:2020,
+  month:11,
+  day:19,
+  hour:14,
+  minute:30,
+  userid:"chloezql"
 }
 ```
-An Example therapist:
+An Example clinic:
 
 ```javascript
 {
-    name:"julie rales",
-    gender:"female",
-    specialty:"legs, knees",
-    availability:"2020/6/1", "2020/6/2","2020/6/3","2020/6/4" //... like an calender
+    name:"NY center",
+    longitude:40.694549,
+    latitude:-73.4579242,
+    focus:"Focus on post surgery recovery",
+    insuranceCover:"Yes",
+    opendays:[1,2,3,4,5]
 }
 ```
 
@@ -62,21 +70,25 @@ An Example therapist:
 ## Wireframes 
 ### (the images crush sometimes, if so please check documentation folder)
 
-/search - page to search and present all therapists
+/login - page to login and sign up
 
-![list create](documentations/search.jpg)
+![list create](documentations/log-in.png)
+
+//search - page to search and present all therapists
+
+![list](documentations/search-new.png)
 
 /myAppt - page for patient to see all upcoming appointment and make adjustments
 
-![list](documentations/myAppt.jpg)
+![list](documentations/my-appt.png)
 
 /myInfo - page for patient's information
 
-![list](documentations/myInfo.jpg)
+![list](documentations/my-info.png)
 
-/myPatient - page to show patient in list for therapists
+/direction - page to show the direction from user to a chosen clinic
 
-![list](documentations/myPatient.jpg)
+![list](documentations/direction.png)
 
 ## Site map
 
